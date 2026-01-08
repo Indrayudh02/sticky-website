@@ -74,7 +74,13 @@
   <div class="features">
     <div>
       <h4>Anime</h4>
-      <img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee" style="width:100%;border-radius:12px;" />
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
+        <img src="images/anime/anime1.webp" alt="Anime sticker angry character" style="width:100%;border-radius:12px;" />
+        <img src="images/anime/anime2.webp" alt="Anime sticker collage" style="width:100%;border-radius:12px;" />
+        <img src="images/anime/anime3.webp" alt="Anime girl sticker" style="width:100%;border-radius:12px;" />
+        <img src="images/anime/anime4.webp" alt="Anime boy smiling sticker" style="width:100%;border-radius:12px;" />
+        <img src="images/anime/anime5.webp" alt="Naruto anime peeker stickers" style="width:100%;border-radius:12px;" />
+      </div>
     </div>
     <div>
       <h4>Cricket</h4>
@@ -93,7 +99,7 @@
       <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335" style="width:100%;border-radius:12px;" />
     </div>
     <div>
-      <h4>Devotional</h4>
+      <h4>Religious</h4>
       <img src="https://images.unsplash.com/photo-1581092334505-98c67b7a7b2d" style="width:100%;border-radius:12px;" />
     </div>
     <div>
@@ -102,7 +108,11 @@
     </div>
     <div>
       <h4>Millennials</h4>
-      <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659" style="width:100%;border-radius:12px;" />
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
+        <img src="images/millennials/quote1.webp" alt="Millennial quote sticker" style="width:100%;border-radius:12px;" />
+        <img src="images/millennials/quote2.webp" alt="Motivational millennial sticker" style="width:100%;border-radius:12px;" />
+        <img src="images/millennials/quote3.webp" alt="Minimal millennial sticker" style="width:100%;border-radius:12px;" />
+      </div>
     </div>
     <div>
       <h4>Popular Brands</h4>
@@ -130,31 +140,57 @@
   <h3>Place Your Order</h3>
   <div class="order-form card">
     <h4 style="margin-bottom:15px;">Pricing</h4>
-    <p>• Small Sticker: ₹50 each</p>
-    <p>• Medium Sticker: ₹80 each</p>
-    <p>• Large Sticker: ₹120 each</p>
-    <p>• Uniform Repair Sticker: ₹150 each</p>
+    <p>• Small Sticker: ₹29 each</p>
+    <p>• Medium Sticker: ₹69 each</p>
+    <p>• Large Sticker: ₹99 each</p>
+    <p>• Uniform Repair Sticker: ₹49 each</p>
     <hr style="margin:20px 0;opacity:0.3;" />
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea placeholder="Describe your sticker design"></textarea>
 
-    <select required>
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="design" placeholder="Describe your sticker design"></textarea>
+
+    <select id="size" onchange="calculateTotal()" required>
       <option value="">Select Sticker Size</option>
-      <option>Small</option>
-      <option>Medium</option>
-      <option>Large</option>
-      <option>Uniform Repair</option>
+      <option value="29">Small</option>
+      <option value="69">Medium</option>
+      <option value="99">Large</option>
+      <option value="49">Uniform Repair</option>
     </select>
 
-    <input type="number" min="1" placeholder="Quantity" required />
+    <input type="number" id="qty" min="1" value="1" placeholder="Quantity" oninput="calculateTotal()" required />
 
-    <select>
-      <option>Payment Method</option>
-      <option>Card</option>
+    <h4>Total Amount: ₹<span id="total">0</span></h4>
+
+    <select id="payment" required>
+      <option value="">Select Payment Method</option>
       <option>UPI</option>
+      <option>Card</option>
       <option>Cash on Delivery</option>
     </select>
+
+    <button onclick="placeOrder()">Place Order</button>
+
+    <p style="font-size:12px;margin-top:10px;">UPI & Card redirect to WhatsApp payment. Razorpay will be added soon.</p>
+
+    <script>
+      function calculateTotal() {
+        const size = document.getElementById('size').value;
+        const qty = document.getElementById('qty').value;
+        const total = size && qty ? size * qty : 0;
+        document.getElementById('total').innerText = total;
+      }
+
+      function placeOrder() {
+        const sizeText = document.getElementById('size').selectedOptions[0].text;
+        const qty = document.getElementById('qty').value;
+        const total = document.getElementById('total').innerText;
+        const payment = document.getElementById('payment').value;
+
+        const msg = `Hello STICKY!%0AOrder Details:%0ASticker: ${sizeText}%0AQuantity: ${qty}%0ATotal: ₹${total}%0APayment: ${payment}`;
+        window.open(`https://wa.me/918653655454?text=${msg}`, '_blank');
+      }
+    </script>
 
     <button onclick="alert('Order placed! We will contact you shortly.')">Submit Order</button>
     <p style="font-size:12px;margin-top:10px;">* Payment gateway is demo‑only. Real payments require Razorpay / Stripe integration.</p>
@@ -180,6 +216,8 @@
 
 </body>
 </html>
+
+
 
 
 
