@@ -8,25 +8,21 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #0f0f0f;
-  color: white;
+  font-family: Poppins, Arial, sans-serif;
+  background: #0e0e0e;
+  color: #fff;
 }
 
 header {
   background: linear-gradient(90deg,#ff416c,#ff4b2b);
-  padding: 20px;
+  padding: 25px;
   text-align: center;
 }
 
 header h1 {
   margin: 0;
-  font-size: 42px;
-  letter-spacing: 2px;
-}
-
-header p {
-  margin: 5px 0;
+  font-size: 44px;
+  letter-spacing: 3px;
 }
 
 section {
@@ -34,33 +30,33 @@ section {
 }
 
 h2 {
+  font-size: 30px;
   margin-bottom: 20px;
-  font-size: 32px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
 
 .grid img {
   width: 100%;
-  border-radius: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 16px;
+  transition: 0.3s;
 }
 
 .grid img:hover {
   transform: scale(1.08);
-  box-shadow: 0 10px 30px rgba(255,75,43,0.6);
+  box-shadow: 0 12px 30px rgba(255,75,43,0.6);
 }
 
-/* Order Section */
+/* Order box */
 .order-box {
-  background: #1c1c1c;
+  max-width: 520px;
+  background: #1b1b1b;
   padding: 30px;
   border-radius: 20px;
-  max-width: 500px;
 }
 
 .order-box select,
@@ -80,25 +76,19 @@ h2 {
 .btn {
   background: linear-gradient(90deg,#ff416c,#ff4b2b);
   border: none;
+  color: white;
   padding: 14px;
   width: 100%;
-  font-size: 16px;
-  color: white;
   border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
 }
 
-.btn:hover {
-  opacity: 0.9;
-}
-
-/* Footer */
 footer {
   background: #000;
   text-align: center;
   padding: 20px;
-  margin-top: 40px;
 }
 </style>
 </head>
@@ -107,111 +97,151 @@ footer {
 
 <header>
   <h1>STICKY</h1>
-  <p>Custom Stickers | Anime • Gen Z • Brands • Uniform Repair</p>
+  <p>Custom Stickers for Everyone</p>
   <p>📧 indrayudh1105@gmail.com | 📞 8653655454</p>
 </header>
 
 <!-- ANIME -->
 <section>
-  <h2>🔥 Anime Stickers</h2>
-  <div class="grid">
-    <img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp">
-    <img src="images/anime/a030687e0c7bdb4857f5c311b78990a2.webp">
-    <img src="images/anime/b9833415def4d18331be906881220bda.webp">
-    <img src="images/anime/STK651NarutoPeekerStickerPack_1024x1024.webp">
-  </div>
+<h2>🔥 Anime</h2>
+<div class="grid">
+<img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp">
+<img src="images/anime/a030687e0c7bdb4857f5c311b78990a2.webp">
+<img src="images/anime/b9833415def4d18331be906881220bda.webp">
+<img src="images/anime/STK651NarutoPeekerStickerPack_1024x1024.webp">
+</div>
+</section>
+
+<!-- CRICKET -->
+<section>
+<h2>🏏 Cricket</h2>
+<div class="grid">
+<img src="images/cricket/cricket1.webp">
+<img src="images/cricket/cricket2.webp">
+<img src="images/cricket/cricket3.webp">
+</div>
+</section>
+
+<!-- FOOTBALL -->
+<section>
+<h2>⚽ Football</h2>
+<div class="grid">
+<img src="images/football/football1.webp">
+<img src="images/football/football2.webp">
+<img src="images/football/football3.webp">
+</div>
+</section>
+
+<!-- WWE -->
+<section>
+<h2>💥 WWE</h2>
+<div class="grid">
+<img src="images/wwe/wwe1.webp">
+<img src="images/wwe/wwe2.webp">
+<img src="images/wwe/wwe3.webp">
+</div>
+</section>
+
+<!-- RELIGIOUS -->
+<section>
+<h2>🕉 Religious</h2>
+<div class="grid">
+<img src="images/religious/religious1.webp">
+<img src="images/religious/religious2.webp">
+<img src="images/religious/religious3.webp">
+</div>
 </section>
 
 <!-- GEN Z -->
 <section>
-  <h2>⚡ Gen Z</h2>
-  <div class="grid">
-    <img src="images/gen-z/genz1.webp">
-    <img src="images/gen-z/genz2.webp">
-    <img src="images/gen-z/genz3.webp">
-  </div>
+<h2>⚡ Gen Z</h2>
+<div class="grid">
+<img src="images/gen-z/genz1.webp">
+<img src="images/gen-z/genz2.webp">
+<img src="images/gen-z/genz3.webp">
+</div>
 </section>
 
 <!-- MILLENNIALS -->
 <section>
-  <h2>💿 Millennials</h2>
-  <div class="grid">
-    <img src="images/millennials/mill1.webp">
-    <img src="images/millennials/mill2.webp">
-    <img src="images/millennials/mill3.webp">
-  </div>
+<h2>💿 Millennials</h2>
+<div class="grid">
+<img src="images/millennials/mill1.webp">
+<img src="images/millennials/mill2.webp">
+<img src="images/millennials/mill3.webp">
+</div>
+</section>
+
+<!-- POPULAR BRANDS -->
+<section>
+<h2>🏷 Popular Brands</h2>
+<div class="grid">
+<img src="images/popular-brands/brand1.webp">
+<img src="images/popular-brands/brand2.webp">
+<img src="images/popular-brands/brand3.webp">
+</div>
 </section>
 
 <!-- UNIFORM REPAIR -->
 <section>
-  <h2>🎒 Uniform Repair Stickers</h2>
-  <p>Cover ripped school & college uniforms — same fabric look ✨</p>
-  <div class="grid">
-    <img src="images/uniform/uniform1.webp">
-    <img src="images/uniform/uniform2.webp">
-  </div>
+<h2>🎒 Uniform Repair Stickers</h2>
+<p>Repair ripped school & college uniforms discreetly.</p>
+<div class="grid">
+<img src="images/uniform/uniform1.webp">
+<img src="images/uniform/uniform2.webp">
+</div>
 </section>
 
 <!-- ORDER -->
 <section>
-  <h2>🛒 Place Order</h2>
+<h2>🛒 Place Your Order</h2>
+<div class="order-box">
+<select id="size" onchange="calc()">
+<option value="">Select Size</option>
+<option value="29">Small – ₹29</option>
+<option value="69">Medium – ₹69</option>
+<option value="99">Large – ₹99</option>
+<option value="49">Uniform – ₹49</option>
+</select>
 
-  <div class="order-box">
-    <label>Sticker Size</label>
-    <select id="size" onchange="calculateTotal()">
-      <option value="">Select Size</option>
-      <option value="29">Small – ₹29</option>
-      <option value="69">Medium – ₹69</option>
-      <option value="99">Large – ₹99</option>
-      <option value="49">Uniform – ₹49</option>
-    </select>
+<input type="number" id="qty" value="1" min="1" onchange="calc()">
+<input type="text" id="coupon" placeholder="Coupon Code (STICKY10)" oninput="calc()">
 
-    <label>Quantity</label>
-    <input type="number" id="qty" value="1" min="1" onchange="calculateTotal()">
+<div class="price">Total: ₹<span id="total">0</span></div>
 
-    <label>Coupon Code</label>
-    <input type="text" id="coupon" placeholder="STICKY10" oninput="calculateTotal()">
+<select>
+<option>UPI</option>
+<option>Card</option>
+<option>Cash on Delivery</option>
+</select>
 
-    <div class="price">Total: ₹<span id="total">0</span></div>
+<button class="btn">Proceed to Payment</button>
 
-    <label>Payment Method</label>
-    <select>
-      <option>UPI</option>
-      <option>Debit / Credit Card</option>
-      <option>Cash on Delivery</option>
-    </select>
-
-    <button class="btn">Proceed to Payment</button>
-
-    <a class="btn" style="text-decoration:none;text-align:center"
-       href="https://wa.me/918653655454?text=Hi%20I%20want%20to%20order%20stickers%20from%20STICKY">
-       Order via WhatsApp
-    </a>
-  </div>
+<a class="btn" style="text-decoration:none;text-align:center"
+href="https://wa.me/918653655454?text=Hi%20I%20want%20to%20order%20from%20STICKY">
+Order via WhatsApp
+</a>
+</div>
 </section>
 
 <footer>
-  <p>© 2026 STICKY. All Rights Reserved.</p>
+<p>© 2026 STICKY. All Rights Reserved.</p>
 </footer>
 
 <script>
-function calculateTotal() {
-  let size = document.getElementById("size").value;
-  let qty = document.getElementById("qty").value;
-  let coupon = document.getElementById("coupon").value.trim();
-
-  let total = size && qty ? size * qty : 0;
-
-  if (coupon === "STICKY10") {
-    total = Math.floor(total * 0.9);
-  }
-
-  document.getElementById("total").innerText = total;
+function calc(){
+let size=document.getElementById("size").value;
+let qty=document.getElementById("qty").value;
+let coupon=document.getElementById("coupon").value.trim();
+let total=size && qty ? size*qty : 0;
+if(coupon==="STICKY10") total=Math.floor(total*0.9);
+document.getElementById("total").innerText=total;
 }
 </script>
 
 </body>
 </html>
+
 
 
 
