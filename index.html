@@ -3,147 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STICKY® | Stick What You Love</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>STICKY – Custom Stickers</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
-body{background:#ffffff;color:#111}
-a{text-decoration:none;color:inherit}
-
-/* HEADER */
-header{
-  padding:18px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #eee;
-}
-header h1{font-weight:800;font-size:26px;letter-spacing:1px}
-nav a{margin-left:22px;font-weight:600}
-nav a:hover{color:#ff3f6c}
-
-/* HERO */
-.hero{
-  padding:70px 8%;
-  background:#f7f7f7;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
-}
-.hero h2{font-size:46px;font-weight:800;margin-bottom:15px}
-.hero span{color:#ff3f6c}
-.hero p{font-size:18px;margin-bottom:25px}
-.hero .btn{
-  display:inline-block;
-  padding:14px 30px;
-  background:#111;
-  color:#fff;
-  font-weight:700;
-  margin-right:12px;
-}
-.hero .btn.alt{background:#ff3f6c}
-
-/* SECTION */
-section{padding:70px 8%}
-section h3{
-  font-size:34px;
-  font-weight:800;
-  margin-bottom:35px;
-  text-align:center;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f;
+  color: white;
 }
 
-/* PRODUCT GRID */
-.category{margin-bottom:60px}
-.category h4{
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:18px;
-  border-left:5px solid #ff3f6c;
-  padding-left:12px;
+header {
+  background: linear-gradient(90deg,#ff416c,#ff4b2b);
+  padding: 20px;
+  text-align: center;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:22px;
+header h1 {
+  margin: 0;
+  font-size: 42px;
+  letter-spacing: 2px;
 }
 
-.card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:14px;
-  overflow:hidden;
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 30px rgba(0,0,0,.12);
-}
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-.card .info{
-  padding:12px;
-  text-align:center;
-}
-.price{font-weight:700;margin-top:6px}
-
-/* ORDER */
-.order-box{
-  max-width:520px;
-  margin:auto;
-  background:#f7f7f7;
-  padding:30px;
-  border-radius:16px;
-}
-select,input{
-  width:100%;
-  padding:14px;
-  margin-bottom:14px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-button{
-  width:100%;
-  padding:15px;
-  background:#111;
-  color:#fff;
-  border:none;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-}
-button:hover{background:#ff3f6c}
-
-/* FOOTER */
-footer{
-  background:#111;
-  color:#fff;
-  padding:30px;
-  text-align:center;
-  font-size:14px;
+header p {
+  margin: 5px 0;
 }
 
-/* WHATSAPP FLOAT */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:40px;
-  font-weight:700;
+section {
+  padding: 50px 8%;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-.hero{grid-template-columns:1fr;text-align:center}
+h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 20px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(255,75,43,0.6);
+}
+
+/* Order Section */
+.order-box {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+}
+
+.order-box select,
+.order-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+.price {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+.btn {
+  background: linear-gradient(90deg,#ff416c,#ff4b2b);
+  border: none;
+  padding: 14px;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
 }
 </style>
 </head>
@@ -151,96 +106,113 @@ footer{
 <body>
 
 <header>
-<h1>STICKY®</h1>
-<nav>
-<a href="#">Home</a>
-<a href="#products">Shop</a>
-<a href="#order">Order</a>
-<a href="#contact">Contact</a>
-</nav>
+  <h1>STICKY</h1>
+  <p>Custom Stickers | Anime • Gen Z • Brands • Uniform Repair</p>
+  <p>📧 indrayudh1105@gmail.com | 📞 8653655454</p>
 </header>
 
-<section class="hero">
-<div>
-<h2>Stick What <span>You Love</span></h2>
-<p>Anime • Sports • Gen-Z • Custom • Uniform Repair Stickers</p>
-<a href="#products" class="btn">Shop Stickers</a>
-<a href="https://wa.me/918653655454" class="btn alt">WhatsApp Order</a>
-</div>
-<img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp">
+<!-- ANIME -->
+<section>
+  <h2>🔥 Anime Stickers</h2>
+  <div class="grid">
+    <img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp">
+    <img src="images/anime/a030687e0c7bdb4857f5c311b78990a2.webp">
+    <img src="images/anime/b9833415def4d18331be906881220bda.webp">
+    <img src="images/anime/STK651NarutoPeekerStickerPack_1024x1024.webp">
+  </div>
 </section>
 
-<section id="products">
-<h3>Shop by Category</h3>
-
-<div class="category">
-<h4>Anime</h4>
-<div class="grid">
-<div class="card"><img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp"><div class="info">Anime Sticker<div class="price">₹29+</div></div></div>
-<div class="card"><img src="images/anime/91sp24m48IL.webp"><div class="info">Anime Sticker<div class="price">₹29+</div></div></div>
-<div class="card"><img src="images/anime/a030687e0c7bdb4857f5c311b78990a2.webp"><div class="info">Anime Sticker<div class="price">₹29+</div></div></div>
-</div>
-</div>
-
-<div class="category">
-<h4>Millennials</h4>
-<div class="grid">
-<div class="card"><img src="images/millennials/3d0190769befc8f544bdba57d8de0d5a.webp"><div class="info">Quote Sticker<div class="price">₹29+</div></div></div>
-<div class="card"><img src="images/millennials/04a7e88c96ab8a700f86b57fd35003ae.webp"><div class="info">Minimal Sticker<div class="price">₹29+</div></div></div>
-</div>
-</div>
-
+<!-- GEN Z -->
+<section>
+  <h2>⚡ Gen Z</h2>
+  <div class="grid">
+    <img src="images/gen-z/genz1.webp">
+    <img src="images/gen-z/genz2.webp">
+    <img src="images/gen-z/genz3.webp">
+  </div>
 </section>
 
-<section id="order">
-<h3>Quick Order</h3>
-<div class="order-box">
-
-<select id="size" onchange="calc()">
-<option value="">Select Size</option>
-<option value="29">Small – ₹29</option>
-<option value="69">Medium – ₹69</option>
-<option value="99">Large – ₹99</option>
-<option value="49">Uniform Repair – ₹49</option>
-</select>
-
-<input type="number" id="qty" value="1" min="1" oninput="calc()">
-
-<h3>Total: ₹<span id="total">0</span></h3>
-
-<button onclick="order()">Order via WhatsApp</button>
-
-</div>
+<!-- MILLENNIALS -->
+<section>
+  <h2>💿 Millennials</h2>
+  <div class="grid">
+    <img src="images/millennials/mill1.webp">
+    <img src="images/millennials/mill2.webp">
+    <img src="images/millennials/mill3.webp">
+  </div>
 </section>
 
-<section id="contact">
-<h3>Contact STICKY</h3>
-<p style="text-align:center">
-📧 indrayudh1105@gmail.com<br>
-📱 8653655454
-</p>
+<!-- UNIFORM REPAIR -->
+<section>
+  <h2>🎒 Uniform Repair Stickers</h2>
+  <p>Cover ripped school & college uniforms — same fabric look ✨</p>
+  <div class="grid">
+    <img src="images/uniform/uniform1.webp">
+    <img src="images/uniform/uniform2.webp">
+  </div>
+</section>
+
+<!-- ORDER -->
+<section>
+  <h2>🛒 Place Order</h2>
+
+  <div class="order-box">
+    <label>Sticker Size</label>
+    <select id="size" onchange="calculateTotal()">
+      <option value="">Select Size</option>
+      <option value="29">Small – ₹29</option>
+      <option value="69">Medium – ₹69</option>
+      <option value="99">Large – ₹99</option>
+      <option value="49">Uniform – ₹49</option>
+    </select>
+
+    <label>Quantity</label>
+    <input type="number" id="qty" value="1" min="1" onchange="calculateTotal()">
+
+    <label>Coupon Code</label>
+    <input type="text" id="coupon" placeholder="STICKY10" oninput="calculateTotal()">
+
+    <div class="price">Total: ₹<span id="total">0</span></div>
+
+    <label>Payment Method</label>
+    <select>
+      <option>UPI</option>
+      <option>Debit / Credit Card</option>
+      <option>Cash on Delivery</option>
+    </select>
+
+    <button class="btn">Proceed to Payment</button>
+
+    <a class="btn" style="text-decoration:none;text-align:center"
+       href="https://wa.me/918653655454?text=Hi%20I%20want%20to%20order%20stickers%20from%20STICKY">
+       Order via WhatsApp
+    </a>
+  </div>
 </section>
 
 <footer>
-© 2026 STICKY® • Inspired by Street Culture • Made in India 🇮🇳
+  <p>© 2026 STICKY. All Rights Reserved.</p>
 </footer>
 
-<a href="https://wa.me/918653655454" class="whatsapp">💬 WhatsApp</a>
-
 <script>
-function calc(){
-let s=document.getElementById("size").value;
-let q=document.getElementById("qty").value;
-document.getElementById("total").innerText=s*q;
-}
-function order(){
-let t=document.getElementById("total").innerText;
-window.open(`https://wa.me/918653655454?text=Hello STICKY! My total is ₹${t}`);
+function calculateTotal() {
+  let size = document.getElementById("size").value;
+  let qty = document.getElementById("qty").value;
+  let coupon = document.getElementById("coupon").value.trim();
+
+  let total = size && qty ? size * qty : 0;
+
+  if (coupon === "STICKY10") {
+    total = Math.floor(total * 0.9);
+  }
+
+  document.getElementById("total").innerText = total;
 }
 </script>
 
 </body>
 </html>
+
 
 
 
