@@ -1,343 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STICKY | Custom Stickers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background: #0f172a; color: #f8fafc; }
-    header { padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { color: #38bdf8; font-size: 28px; }
-    nav a { color: #f8fafc; margin-left: 20px; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #38bdf8; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STICKY® | Stick What You Love</title>
 
-    .hero { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .hero h2 { font-size: 42px; margin-bottom: 20px; }
-    .hero span { color: #38bdf8; }
-    .hero p { margin-bottom: 30px; line-height: 1.6; }
-    .btn { background: #38bdf8; color: #020617; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    .card { background: #020617; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-
-    section { padding: 80px 10%; }
-    section h3 { font-size: 32px; margin-bottom: 40px; text-align: center; }
-
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-    .features div { padding: 25px; background: #020617; border-radius: 14px; }
-
-    .order-form { max-width: 600px; margin: auto; }
-    input, textarea, select { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: none; }
-    button { width: 100%; padding: 14px; background: #38bdf8; color: #020617; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; }
-
-    footer { background: #020617; padding: 30px 10%; text-align: center; margin-top: 60px; }
-    footer p { margin-bottom: 8px; }
-
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-    }
-  </style>
 <style>
-  .badge{background:#22c55e;color:#022c22;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
-  .glow{box-shadow:0 0 20px rgba(56,189,248,.6)}
-  .shake:hover{animation:shake .4s}
-  @keyframes shake{0%{transform:rotate(0)}25%{transform:rotate(2deg)}50%{transform:rotate(-2deg)}75%{transform:rotate(1deg)}100%{transform:rotate(0)}}
-  .confirm{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:1000}
-  .confirm .box{background:#020617;padding:30px;border-radius:20px;max-width:400px;text-align:center}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+body{background:#ffffff;color:#111}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+header{
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+}
+header h1{font-weight:800;font-size:26px;letter-spacing:1px}
+nav a{margin-left:22px;font-weight:600}
+nav a:hover{color:#ff3f6c}
+
+/* HERO */
+.hero{
+  padding:70px 8%;
+  background:#f7f7f7;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.hero h2{font-size:46px;font-weight:800;margin-bottom:15px}
+.hero span{color:#ff3f6c}
+.hero p{font-size:18px;margin-bottom:25px}
+.hero .btn{
+  display:inline-block;
+  padding:14px 30px;
+  background:#111;
+  color:#fff;
+  font-weight:700;
+  margin-right:12px;
+}
+.hero .btn.alt{background:#ff3f6c}
+
+/* SECTION */
+section{padding:70px 8%}
+section h3{
+  font-size:34px;
+  font-weight:800;
+  margin-bottom:35px;
+  text-align:center;
+}
+
+/* PRODUCT GRID */
+.category{margin-bottom:60px}
+.category h4{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:18px;
+  border-left:5px solid #ff3f6c;
+  padding-left:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:14px;
+  overflow:hidden;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.card .info{
+  padding:12px;
+  text-align:center;
+}
+.price{font-weight:700;margin-top:6px}
+
+/* ORDER */
+.order-box{
+  max-width:520px;
+  margin:auto;
+  background:#f7f7f7;
+  padding:30px;
+  border-radius:16px;
+}
+select,input{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  width:100%;
+  padding:15px;
+  background:#111;
+  color:#fff;
+  border:none;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+button:hover{background:#ff3f6c}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:#fff;
+  padding:30px;
+  text-align:center;
+  font-size:14px;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:40px;
+  font-weight:700;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero{grid-template-columns:1fr;text-align:center}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>STICKY</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#order">Order</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<h1>STICKY®</h1>
+<nav>
+<a href="#">Home</a>
+<a href="#products">Shop</a>
+<a href="#order">Order</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-  <div>
-    <h2>Custom Stickers that <span>Stick</span> with You</h2>
-    <p>STICKY offers high‑quality, fully customizable stickers for businesses, creators, and individuals. You imagine it — we print it.</p>
-    <a href="#order" class="btn">Order Now</a>
-    <a href="https://wa.me/918653655454?text=Hello%20STICKY!%20I%20want%20to%20place%20a%20custom%20sticker%20order." class="btn" style="margin-left:10px;background:#22c55e;color:#022c22;">WhatsApp Order</a>
-  </div>
-  <div class="card">
-    <h3>Why STICKY?</h3>
-    <ul>
-      <li>✔ Premium quality material</li>
-      <li>✔ Fully customizable designs</li>
-      <li>✔ Fast delivery</li>
-      <li>✔ Affordable pricing</li>
-    </ul>
-  </div>
+<div>
+<h2>Stick What <span>You Love</span></h2>
+<p>Anime • Sports • Gen-Z • Custom • Uniform Repair Stickers</p>
+<a href="#products" class="btn">Shop Stickers</a>
+<a href="https://wa.me/918653655454" class="btn alt">WhatsApp Order</a>
+</div>
+<img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp">
 </section>
 
 <section id="products">
-  <h3>Sticker Categories</h3>
+<h3>Shop by Category</h3>
 
-  <div class="features">
-    <div>
-      <h4>Anime</h4>
+<div class="category">
+<h4>Anime</h4>
+<div class="grid">
+<div class="card"><img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp"><div class="info">Anime Sticker<div class="price">₹29+</div></div></div>
+<div class="card"><img src="images/anime/91sp24m48IL.webp"><div class="info">Anime Sticker<div class="price">₹29+</div></div></div>
+<div class="card"><img src="images/anime/a030687e0c7bdb4857f5c311b78990a2.webp"><div class="info">Anime Sticker<div class="price">₹29+</div></div></div>
+</div>
+</div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
+<div class="category">
+<h4>Millennials</h4>
+<div class="grid">
+<div class="card"><img src="images/millennials/3d0190769befc8f544bdba57d8de0d5a.webp"><div class="info">Quote Sticker<div class="price">₹29+</div></div></div>
+<div class="card"><img src="images/millennials/04a7e88c96ab8a700f86b57fd35003ae.webp"><div class="info">Minimal Sticker<div class="price">₹29+</div></div></div>
+</div>
+</div>
 
-        <img src="images/anime/75a6d048a334717a38e1254e90fc58de.webp"
-             alt="Anime sticker angry character"
-             style="width:100%;border-radius:12px;" />
-
-        <img src="images/anime/91sp24m48IL.webp"
-             alt="Anime sticker collage"
-             style="width:100%;border-radius:12px;" />
-
-        <img src="images/anime/a030687e0c7bdb4857f5c311b78990a2.webp"
-             alt="Anime girl sticker"
-             style="width:100%;border-radius:12px;" />
-
-        <img src="images/anime/b9833415def4d18331be906881220bda.webp"
-             alt="Uzi anime sticker"
-             style="width:100%;border-radius:12px;" />
-
-        <img src="images/anime/CAAN196_c29adfc6-b1a9-43e1-b951-bf7c1eae2201.webp"
-             alt="Naruto anime peeker stickers"
-             style="width:100%;border-radius:12px;" />
-
-
-      </div>
-    </div>
-    <div>
-      <h4>Cricket</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1593766827228-8737b4534aa6" style="width:100%;border-radius:12px;" />
-      <img src="images/cricket/71SCs-OHhML" alt="MS DHONI" style="width:100%;border-radius:12px;" />
-      <img src="images/cricket/91qYduE97NL" alt="Indian team collage" style="width:100%;border-radius:12px;" />
-      <img src="images/cricket/st,small,507x507-pad,600x600,f8f8f8 (3)" alt="Hardik Pandiya" style="width:100%;border-radius:12px;" />
-      <img src="images/cricket/st,small,507x507-pad,600x600,f8f8f8 (2)" alt="Virat Koholi" style="width:100%;border-radius:12px;" />
-      <img src="images/cricket/st,small,507x507-pad,600x600,f8f8f8 (5)" alt="Rohit Sharma" style="width:100%;border-radius:12px;" />
-    </div>
-            </div>
-    <div>
-      <h4>Football</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2" style="width:100%;border-radius:12px;" />
-      <img src="images/football/145251c3ea6cca6f20d22595953abf19" alt="Messi" style="width:100%;border-radius:12px;" />
-      <img src="images/football/st,small,507x507-pad,600x600,f8f8f8 (1)" alt="Pedri Gavi" style="width:100%;border-radius:12px;" />
-      <img src="images/football/st,small,507x507-pad,600x600,f8f8f8 (3)" alt="Lamine Yamal" style="width:100%;border-radius:12px;" />
-      <img src="images/football/92c7edf2c9ddb7fa2fd182f0fbcc0abf" alt="MSN" style="width:100%;border-radius:12px;" />
-      <img src="images/football/97bd4e0158ff5f3910093a3801e2a7aa" alt="Barcelona collage" style="width:100%;border-radius:12px;" />
-    </div>
-            </div>
-    <div>
-      <h4>WWE</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc" style="width:100%;border-radius:12px;" />
-      <img src="images/wwe/e1980720105c076980eb0bb83388a927" alt="Romen Regins" style="width:100%;border-radius:12px;" />
-      <img src="images/wwe/st,small,507x507-pad,600x600,f8f8f8" alt="John Cena" style="width:100%;border-radius:12px;" />
-      <img src="images/wwe/51EnCzvi6eL" alt="John Cena collage" style="width:100%;border-radius:12px;" />
-      <img src="images/wwe/st,small,507x507-pad,600x600,f8f8f8.u1" alt="Hulk Hogan" style="width:100%;border-radius:12px;" />
-      <img src="images/wwe/71zr7JHQ7SL" alt="WWE collage" style="width:100%;border-radius:12px;" />
-    </div>
-            </div>
-    <div>
-      <h4>Motivation</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335" style="width:100%;border-radius:12px;" />
-      <img src="images/motivation/motivational-beauty-female-sticker-set-cute-notebook-label-clip-art-self-confidence-and-love-quotes-vector" alt="Motivational Collage 4"  style="width:100%;border-radius:12px;" />
-      <img src="images/motivation/motivational-lettering-phrase-sticker-set-cute-notebook-label-clip-art-self-confidence-inspirational-quotes-vector (1)" alt="Motivational Collage 4(i)"  style="width:100%;border-radius:12px;" />
-      <img src="images/motivation/motivational-lettering-phrase-sticker-set-cute-notebook-label-clip-art-self-confidence-inspirational-quotes-vector" alt="Motivational Collage 4(ii)"  style="width:100%;border-radius:12px;" />
-      <img src="images/motivation/st,small,507x507-pad,600x600,f8f8f8" alt="Motivational quote"  style="width:100%;border-radius:12px;" />
-      <img src="images/motivation/614NWOViGCL" alt="Motivational Collage 25"  style="width:100%;border-radius:12px;" />
-    </div>
-            </div>
-    <div>
-      <h4>Religious</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1581092334505-98c67b7a7b2d" style="width:100%;border-radius:12px;" />
-      <img src="images/religious/st,small,507x507-pad,600x600,f8f8f8 (2)" alt="Bajrangbali" style="width:100%;border-radius:12px;" />
-      <img src="images/religious/st,small,507x507-pad,600x600,f8f8f8.u1" alt="Maa Kali" style="width:100%;border-radius:12px;" />
-      <img src="images/religious/52764726_0" alt="Maa Durga" style="width:100%;border-radius:12px;" />
-      <img src="images/religious/st,small,507x507-pad,600x600,f8f8f8 (1)" alt="Ganpati" style="width:100%;border-radius:12px;" />
-      <img src="images/religious/31108365_0" alt="Mahadev" style="width:100%;border-radius:12px;" />
-      <img src="images/religious/61e8e4eag1L" alt="Jesus" style="width:100%;border-radius:12px;" />
-    </div>
-            </div>
-    <div>
-      <h4>Gen Z</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" style="width:100%;border-radius:12px;" />
-      <img src="images/gen z/7545fe9cf11d847e567645790774edd5" alt="Gen Z quotes" style="width:100%;border-radius:12px;" />
-      <img src="images/gen z/15038" alt="Gen Z quotes" style="width:100%;border-radius:12px;" />
-      <img src="images/gen z/8348924" alt="Gen Z quotes" style="width:100%;border-radius:12px;" />
-      <img src="images/gen z/15069520b640191a3da138cbc2d0a318" alt="Gen Z quotes" style="width:100%;border-radius:12px;" />
-      <img src="images/gen z/e913045b2a5f274ff502cad49d0bf902" alt="Gen Z quotes" style="width:100%;border-radius:12px;" />
-    </div>
-            </div>
-    <div>
-      <h4>Millennials</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-        <img src="images/millennials/f0275bef7d598a146d532d1bab076a43" alt="Millennial quote sticker" style="width:100%;border-radius:12px;" />
-        <img src="images/millennials/04a7e88c96ab8a700f86b57fd35003ae" alt="Motivational millennial sticker" style="width:100%;border-radius:12px;" />
-        <img src="images/millennials/3d0190769befc8f544bdba57d8de0d5a" alt="Minimal millennial sticker" style="width:100%;border-radius:12px;" />
-        <img src="images/millennials/
-        <img src="images/millennials/
-      </div>
-    </div>
-    <div>
-      <h4>Popular Brands</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/61vQRWFetwL" alt="Brands collage" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/7123m5FkfJL" alt="Brands collage II" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/addidas" alt="Adidas" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/Puma-Symbol-700x394.webp" alt="Puma" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/s1-415" alt="Bugatti" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/st,small,507x507-pad,600x600,f8f8f8 (1)" alt="Ferrari" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/Symbol-Nike-500x281" alt="Nike" style="width:100%;border-radius:12px;" />
-      <img src="images/popular brands/st,small,507x507-pad,600x600,f8f8f8 (3)" alt="Lamborgine" style="width:100%;border-radius:12px;" />
-    </div>
-  </div>
-</section>
-
-<section id="uniform" style="background:#020617;">
-  <h3>Uniform Repair Stickers (Special)</h3>
-  <div class="card" style="max-width:900px;margin:auto;">
-    <p style="margin-bottom:20px;">We provide <b>custom-designed fabric stickers</b> for school and college uniforms. These stickers are specially made to <b>cover accidental rips, holes, or tears</b> and blend perfectly with the original uniform fabric and color.</p>
-    <ul style="line-height:1.8;">
-      <li>✔ Matches school/college uniform color</li>
-      <li>✔ Fabric-like texture</li>
-      <li>✔ Wash-friendly & durable</li>
-      <li>✔ Looks natural and neat</li>
-    </ul>
-    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5" style="width:100%;border-radius:14px;margin-top:20px;" />
-    <a href="https://wa.me/918653655454?text=Hello%20STICKY!%20I%20want%20uniform%20repair%20stickers." class="btn" style="display:inline-block;margin-top:20px;">Order Uniform Stickers</a>
-  </div>
 </section>
 
 <section id="order">
-  <h3>Place Your Order <span class="badge">Hot 🔥</span></h3>
-  <div class="order-form card">
-    <h4 style="margin-bottom:15px;">Pricing</h4>
-    <p>• Small Sticker: ₹29 each</p>
-    <p>• Medium Sticker: ₹69 each</p>
-    <p>• Large Sticker: ₹99 each</p>
-    <p>• Uniform Repair Sticker: ₹49 each</p>
-    <hr style="margin:20px 0;opacity:0.3;" />
+<h3>Quick Order</h3>
+<div class="order-box">
 
-    <input type="text" id="name" placeholder="Your Name" required />
-    <input type="email" id="email" placeholder="Your Email" required />
-    <textarea id="design" placeholder="Describe your sticker design"></textarea>
+<select id="size" onchange="calc()">
+<option value="">Select Size</option>
+<option value="29">Small – ₹29</option>
+<option value="69">Medium – ₹69</option>
+<option value="99">Large – ₹99</option>
+<option value="49">Uniform Repair – ₹49</option>
+</select>
 
-    <select id="size" onchange="calculateTotal()" required>
-      <option value="">Select Sticker Size</option>
-      <option value="29">Small</option>
-      <option value="69">Medium</option>
-      <option value="99">Large</option>
-      <option value="49">Uniform Repair</option>
-    </select>
+<input type="number" id="qty" value="1" min="1" oninput="calc()">
 
-    <input type="number" id="qty" min="1" value="1" placeholder="Quantity" oninput="calculateTotal()" required />
+<h3>Total: ₹<span id="total">0</span></h3>
 
-    <h4 class="glow">Total Amount: ₹<span id="total">0</span></h4>
+<button onclick="order()">Order via WhatsApp</button>
 
-    <input type="text" id="coupon" placeholder="Discount Code (STICKY10)" oninput="calculateTotal()" />
-
-    <select id="payment" required>
-      <option value="">Select Payment Method</option>
-      <option>UPI</option>
-      <option>Card</option>
-      <option>Cash on Delivery</option>
-    </select>
-
-    <button onclick="placeOrder()">Place Order</button>
-
-    <p style="font-size:12px;margin-top:10px;">UPI & Card redirect to WhatsApp payment. Razorpay will be added soon.</p>
-
-    <script>
-      function calculateTotal() {
-        const size = document.getElementById('size').value;
-        const qty = document.getElementById('qty').value;
-        const coupon = document.getElementById('coupon').value;
-        let total = size && qty ? size * qty : 0;
-        if(coupon === 'STICKY10') total = Math.floor(total * 0.9);
-        document.getElementById('total').innerText = total;
-      }
-
-      function calculateTotal() {
-        const size = document.getElementById('size').value;
-        const qty = document.getElementById('qty').value;
-        const total = size && qty ? size * qty : 0;
-        document.getElementById('total').innerText = total;
-      }
-
-      function placeOrder() {
-        const sizeText = document.getElementById('size').selectedOptions[0].text;
-        const qty = document.getElementById('qty').value;
-        const total = document.getElementById('total').innerText;
-        const payment = document.getElementById('payment').value;
-
-        const msg = `Hello STICKY!%0AOrder Details:%0ASticker: ${sizeText}%0AQuantity: ${qty}%0ATotal: ₹${total}%0APayment: ${payment}`;
-        document.getElementById('confirm').style.display='flex';
-        window.open(`https://wa.me/918653655454?text=${msg}`, '_blank');
-      }
-    </script>
-
-    <button onclick="alert('Order placed! We will contact you shortly.')">Submit Order</button>
-    <p style="font-size:12px;margin-top:10px;">* Payment gateway is demo‑only. Real payments require Razorpay / Stripe integration.</p>
-  </div>
+</div>
 </section>
 
 <section id="contact">
-  <h3>Contact Us</h3>
-  <div class="features">
-    <div>Email: <b>indrayudh1105@gmail.com</b></div>
-    <div>Phone / WhatsApp: <b>8653655454</b></div>
-  </div>
+<h3>Contact STICKY</h3>
+<p style="text-align:center">
+📧 indrayudh1105@gmail.com<br>
+📱 8653655454
+</p>
 </section>
 
 <footer>
-  <p>© 2026 STICKY. All Rights Reserved.</p>
-  <p>Custom Stickers • Modern Design • Made with ❤️</p>
+© 2026 STICKY® • Inspired by Street Culture • Made in India 🇮🇳
 </footer>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/918653655454?text=Hello%20STICKY!%20I%20want%20to%20place%20a%20custom%20sticker%20order." style="position:fixed;bottom:20px;right:20px;background:#22c55e;color:white;padding:15px 20px;border-radius:50px;font-weight:600;text-decoration:none;box-shadow:0 10px 20px rgba(0,0,0,0.4);z-index:999;">💬 WhatsApp</a>
+<a href="https://wa.me/918653655454" class="whatsapp">💬 WhatsApp</a>
 
-
-<div id="confirm" class="confirm">
-  <div class="box">
-    <h3>🎉 Order Initiated!</h3>
-    <p>Your order details have been sent on WhatsApp.</p>
-    <p>We’ll contact you shortly.</p>
-    <button onclick="document.getElementById('confirm').style.display='none'" class="btn shake">Close</button>
-  </div>
-</div>
-
-<section style="padding:60px 10%;background:#020617;text-align:center">
-  <h3>Pay via UPI</h3>
-  <p>Scan & pay instantly (GPay / PhonePe / Paytm)</p>
-  <img src="images/upi-qr.png" alt="UPI QR" style="width:200px;border-radius:16px" />
-</section>
-
-<section style="padding:60px 10%;">
-  <h3>Uniform Sticker Customizer</h3>
-  <div class="order-form card">
-    <select><option>Select School / College</option></select>
-    <select><option>Uniform Color</option><option>White</option><option>Blue</option><option>Grey</option></select>
-    <select><option>Fabric Type</option><option>Cotton</option><option>Polyester</option></select>
-    <a href="https://wa.me/918653655454?text=Hello%20STICKY!%20I%20want%20custom%20uniform%20repair%20stickers." class="btn">Customize on WhatsApp</a>
-  </div>
-</section>
+<script>
+function calc(){
+let s=document.getElementById("size").value;
+let q=document.getElementById("qty").value;
+document.getElementById("total").innerText=s*q;
+}
+function order(){
+let t=document.getElementById("total").innerText;
+window.open(`https://wa.me/918653655454?text=Hello STICKY! My total is ₹${t}`);
+}
+</script>
 
 </body>
 </html>
-
-
-
-
 
 
 
