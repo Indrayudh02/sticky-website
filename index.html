@@ -2,148 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STICKY | Custom Stickers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#0f172a;color:#f8fafc}
-
 header{padding:20px 8%;display:flex;justify-content:space-between;align-items:center}
-header h1{color:#38bdf8;font-size:34px;font-weight:800}
-nav a{color:#f8fafc;margin-left:20px;text-decoration:none;font-weight:500}
-nav a:hover{color:#38bdf8}
+header h1{color:#38bdf8}
+nav a{color:#f8fafc;margin-left:18px;text-decoration:none}
 
-.hero{padding:90px 8%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.hero h2{font-size:50px}
-.hero span{color:#38bdf8}
+section{padding:70px 8%}
+h3{text-align:center;font-size:38px;margin-bottom:40px}
+h4{font-size:28px;margin:30px 0 15px}
 
-.btn{
-display:inline-block;margin-top:15px;padding:14px 30px;
-background:linear-gradient(135deg,#38bdf8,#22d3ee);
-color:#020617;border-radius:12px;font-weight:700;text-decoration:none
-}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.btn{background:#38bdf8;color:#020617;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-block;margin-top:12px}
 
-.card{
-background:#020617;padding:30px;border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.45)
-}
+.slider{display:flex;gap:20px;overflow-x:auto}
+.slider::-webkit-scrollbar{display:none}
 
-section{padding:90px 8%}
+.product{min-width:180px;background:#020617;padding:14px;border-radius:14px;text-align:center}
+.product img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+.product p{margin:8px 0;font-weight:600}
+.product select{width:100%;padding:6px;border-radius:6px;margin-bottom:6px}
+.cart-btn{background:#2563eb;color:#fff;border:none;padding:8px;width:100%;border-radius:8px;cursor:pointer}
 
-/* BIG SECTION TITLES */
-section h3{
-text-align:center;
-font-size:46px;
-font-weight:800;
-margin-bottom:60px;
-letter-spacing:1px;
-}
+#cartIcon{position:fixed;top:20px;right:20px;background:#2563eb;color:#fff;padding:12px 16px;border-radius:50%;cursor:pointer}
+#cartCount{background:red;border-radius:50%;padding:2px 7px;font-size:12px;position:absolute;top:-5px;right:-5px}
 
-.category-title{
-font-size:32px;
-margin:60px 0 25px;
-color:#38bdf8;
-font-weight:700;
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
+.modal-box{background:#020617;padding:25px;border-radius:18px;width:90%;max-width:420px}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
+input,select{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:none}
 
-.product{
-background:#020617;
-padding:15px;
-border-radius:18px;
-text-align:center;
-transition:.3s;
-}
-.product:hover{
-transform:translateY(-6px);
-box-shadow:0 0 25px #38bdf850;
-}
+footer{background:#020617;padding:25px;text-align:center;margin-top:60px}
 
-.product img{width:100%;border-radius:14px}
-
-.price{margin:10px 0;font-weight:700;color:#38bdf8}
-
-.product button{
-padding:10px 18px;
-border:none;border-radius:10px;
-background:#22c55e;
-font-weight:700;
-cursor:pointer;
-}
-
-.badge{
-background:#22c55e;color:#022c22;
-padding:6px 14px;border-radius:999px;font-size:14px
-}
-
-.order-form input,.order-form select{
-width:100%;padding:14px;margin-bottom:14px;
-border-radius:10px;border:none
-}
-
-.order-form button{
-width:100%;padding:16px;border:none;border-radius:12px;
-background:linear-gradient(135deg,#38bdf8,#22d3ee);
-font-weight:800;cursor:pointer
-}
-
-footer{background:#020617;padding:30px;text-align:center}
-
-.cart{
-position:fixed;
-top:20px;
-right:20px;
-background:#22c55e;
-color:#022c22;
-padding:10px 18px;
-border-radius:999px;
-font-weight:800;
-z-index:999;
-}
-
-@media(max-width:768px){
-.hero{grid-template-columns:1fr;text-align:center}
-}
+@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}}
 </style>
 </head>
 
 <body>
 
-<div class="cart">🛒 Cart: <span id="cartCount">0</span></div>
-
 <header>
 <h1>STICKY</h1>
 <nav>
-<a href="#">Home</a>
 <a href="#products">Products</a>
 <a href="#uniform">Uniform Repair</a>
-<a href="#order">Checkout</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
+<div id="cartIcon" onclick="openCart()">🛒<span id="cartCount">0</span></div>
+
 <section class="hero">
 <div>
-<h2>Stickers that <span>Speak You</span></h2>
-<p>Custom • Trendy • Youth-first stickers</p>
+<h2>Stickers that <span style="color:#38bdf8">Speak You</span></h2>
+<p>Anime • Sports • Brands • Religious • Custom Repair</p>
 <a href="#products" class="btn">Shop Now</a>
-<a href="https://wa.me/918653655454" class="btn" style="background:#22c55e;margin-left:10px">WhatsApp</a>
 </div>
-
-<div class="card">
-<h3>Why STICKY?</h3>
-<p>✔ Premium vinyl quality</p>
-<p>✔ Custom & repair stickers</p>
-<p>✔ Affordable pricing</p>
-<p>✔ Fast delivery</p>
+<div>
+<p>✔ Premium Quality<br>✔ Youth Style<br>✔ Custom Designs</p>
 </div>
 </section>
 
@@ -151,137 +72,111 @@ z-index:999;
 <section id="products">
 <h3>Sticker Categories</h3>
 
-<div class="category-title">Anime</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768048135/a030687e0c7bdb4857f5c311b78990a2_cudf1w.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768048156/fad5970b09a6ec345ff2dbda790b4774_kdwadz.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768048146/b9833415def4d18331be906881220bda_cuweqf.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- ANIME -->
+<h4>Anime</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768048135/a030687e0c7bdb4857f5c311b78990a2_cudf1w.webp"><p>Anime</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Anime',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768048156/fad5970b09a6ec345ff2dbda790b4774_kdwadz.webp"><p>Anime</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Anime',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768048146/b9833415def4d18331be906881220bda_cuweqf.webp"><p>Anime</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Anime',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
-<div class="category-title">Cricket</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768045917/virat-kohli.webp_ufauau.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046221/rohit-sharma.webp_vxdwam.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046234/ms-dhoni.webp_rjlkiv.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- CRICKET -->
+<h4>Cricket</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768045917/virat-kohli.webp_ufauau.webp"><p>Virat Kohli</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Virat Kohli',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046221/rohit-sharma.webp_vxdwam.webp"><p>Rohit Sharma</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Rohit Sharma',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046234/ms-dhoni.webp_rjlkiv.webp"><p>MS Dhoni</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('MS Dhoni',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
-<div class="category-title">Football</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046246/messi.webp_nviec0.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046257/st_small_507x507-pad_600x600_f8f8f8_3_ghrq8b.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046274/ronaldo.webp_e48e4l.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- FOOTBALL -->
+<h4>Football</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046246/messi.webp_nviec0.webp"><p>Messi</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Messi',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046274/ronaldo.webp_e48e4l.webp"><p>Ronaldo</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Ronaldo',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046257/st_small_507x507-pad_600x600_f8f8f8_3_ghrq8b.webp"><p>Lamine Yamal</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Lamine Yamal',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
-<div class="category-title">WWE</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046435/john-cena.webp_txjlph.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046453/st_small_507x507-pad_600x600_f8f8f8_1_bcvlup.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046444/roman-reigns.webp_ibhuje.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- WWE -->
+<h4>WWE</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046435/john-cena.webp_txjlph.webp"><p>John Cena</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('John Cena',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046444/roman-reigns.webp_ibhuje.webp"><p>Roman Reigns</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Roman Reigns',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046453/st_small_507x507-pad_600x600_f8f8f8_1_bcvlup.webp"><p>WWE</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('WWE',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
-<div class="category-title">Religious</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046422/mahadev.webp_f4g5xa.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046410/ganesh.webp_n2jqkm.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- RELIGIOUS -->
+<h4>Religious</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046422/mahadev.webp_f4g5xa.webp"><p>Mahadev</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Mahadev',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046410/ganesh.webp_n2jqkm.webp"><p>Ganesh</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Ganesh',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046397/religious1.webp_ms79m8.webp"><p>Religious</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Religious',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
-<div class="category-title">Gen Z</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046330/aesthetic.webp_rp7z1c.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046339/meme.webp_zg5npg.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- GEN Z -->
+<h4>Gen Z</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046330/aesthetic.webp_rp7z1c.webp"><p>Aesthetic</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Aesthetic',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046339/meme.webp_zg5npg.webp"><p>Meme</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Meme',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046350/vibe.webp_eudryb.webp"><p>Vibe</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Vibe',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
-<div class="category-title">Motivational</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046305/hustle.webp_cbldao.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046316/success.webp_txyh6m.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-</div>
-
-<div class="category-title">Popular Brands</div>
-<div class="grid">
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046373/puma.webp_lndkex.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
-<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046381/adidas.webp_x6dj2k.webp"><div class="price">₹69</div><button onclick="addToCart(69)">Add to Cart</button></div>
+<!-- BRANDS -->
+<h4>Popular Brands</h4>
+<div class="slider">
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046364/nike.webp_fbzvkm.webp"><p>Nike</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Nike',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046381/adidas.webp_x6dj2k.webp"><p>Adidas</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Adidas',this.previousElementSibling)">Add to Cart</button></div>
+<div class="product"><img src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768046373/puma.webp_lndkex.webp"><p>Puma</p><select><option value="29">Small ₹29</option><option value="69">Medium ₹69</option><option value="99">Large ₹99</option></select><button class="cart-btn" onclick="addToCart('Puma',this.previousElementSibling)">Add to Cart</button></div>
 </div>
 
 </section>
 
 <!-- UNIFORM -->
 <section id="uniform" style="background:#020617">
-<h3>Uniform Repair Stickers <span class="badge">Special</span></h3>
-<div class="card">
-<p>Upload your uniform photo — we match exact color & fabric.</p>
-<input type="file" accept="image/*">
-<p class="price">₹49 per sticker</p>
-<a href="https://wa.me/918653655454" class="btn">Send Image on WhatsApp</a>
-</div>
+<h3>Uniform Repair Stickers</h3>
+<p style="text-align:center">Upload uniform image for exact color match • ₹49</p>
+<input type="file">
+<button class="cart-btn" onclick="addUniform()">Add Uniform Repair</button>
 </section>
 
-<!-- CHECKOUT -->
-<section id="order">
-<h3>Checkout</h3>
-<div class="order-form card">
-
-<select id="size" onchange="calc()">
-<option value="">Select Size</option>
-<option value="29">Small ₹29</option>
-<option value="69">Medium ₹69</option>
-<option value="99">Large ₹99</option>
-<option value="49">Uniform ₹49</option>
+<!-- CART MODAL -->
+<div id="cartModal" class="modal">
+<div class="modal-box">
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<h4>Total: ₹<span id="total">0</span></h4>
+<select id="payment" onchange="toggleQR()">
+<option value="">Payment</option>
+<option value="upi">UPI</option>
+<option>Card</option>
+<option>COD</option>
 </select>
-
-<input type="number" id="qty" min="1" value="1" oninput="calc()">
-<input type="text" id="coupon" placeholder="Coupon: STICKY10" oninput="calc()">
-
-<h2>Total: ₹<span id="total">0</span></h2>
-
-<select>
-<option>UPI</option>
-<option>Debit / Credit Card</option>
-<option>Cash on Delivery</option>
-</select>
-
-<button onclick="checkout()">Proceed to Pay</button>
+<img id="qr" src="https://res.cloudinary.com/dxnev5xff/image/upload/v1768316423/QR_l1pne8.jpg" style="display:none;width:200px;margin:auto">
+<button class="btn" onclick="confirmOrder()">Confirm Order</button>
+<button class="btn" style="background:#475569" onclick="closeCart()">Close</button>
 </div>
-</section>
+</div>
 
 <section id="contact">
 <h3>Contact</h3>
 <p>Email: indrayudh1105@gmail.com</p>
-<p>Phone / WhatsApp: 8653655454</p>
+<p>WhatsApp: 8653655454</p>
 </section>
 
-<footer>
-<p>© 2026 STICKY • Built for Youth 🚀</p>
-</footer>
-
-<a href="https://wa.me/918653655454" style="position:fixed;bottom:20px;right:20px;background:#22c55e;color:#fff;padding:15px 22px;border-radius:50px;text-decoration:none">💬 WhatsApp</a>
+<footer>© 2026 STICKY</footer>
 
 <script>
-let cartCount=0,cartTotal=0
-
-function addToCart(price){
-cartCount++
-cartTotal+=price
-document.getElementById('cartCount').innerText=cartCount
-}
-
-function calc(){
-let s=+document.getElementById('size').value
-let q=+document.getElementById('qty').value
-let c=document.getElementById('coupon').value
-let t=s*q
-if(c==="STICKY10") t=Math.floor(t*0.9)
-document.getElementById('total').innerText=t||0
-}
-
-function checkout(){
-let total=document.getElementById('total').innerText
-window.open(`https://wa.me/918653655454?text=Order%20Total:%20₹${total}`,'_blank')
-}
+let cart=[],total=0
+function addToCart(n,s){cart.push({n,price:+s.value,size:s.options[s.selectedIndex].text});cartCount.innerText=cart.length}
+function addUniform(){cart.push({n:"Uniform Repair",price:49,size:"Standard"});cartCount.innerText=cart.length}
+function openCart(){let h="";total=0;cart.forEach(i=>{h+=`<p>${i.n} (${i.size}) ₹${i.price}</p>`;total+=i.price});cartItems.innerHTML=h||"Cart empty";document.getElementById("total").innerText=total;cartModal.style.display="flex"}
+function closeCart(){cartModal.style.display="none"}
+function toggleQR(){qr.style.display=payment.value==="upi"?"block":"none"}
+function confirmOrder(){window.open(`https://wa.me/918653655454?text=Order%20Total:%20₹${total}`)}
 </script>
 
 </body>
 </html>
+
 
 
 
